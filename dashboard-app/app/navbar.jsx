@@ -8,8 +8,10 @@ export default function Navbar() {
       <Link className="text-3xl px-4" href="/landingPage">
         Dashboard App
       </Link>
-      <SignInButton />
-      <SignOutButton />
+      <div className="flex flex-row">
+        <SignInButton />
+        <SignOutButton />
+      </div>
     </div>
   );
 }

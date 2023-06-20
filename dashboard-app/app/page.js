@@ -2,14 +2,10 @@ import { getServerSession } from "next-auth";
 
 import LandingPage from "./landingPage/page";
 
-export default function Home() {
-  const { data: session } = getServerSession();
+export default async function Home() {
+  const session = await getServerSession();
 
   if (!session) {
-    return (
-      <>
-        <LandingPage />
-      </>
-    );
+    return <LandingPage />;
   }
 }
