@@ -1,6 +1,7 @@
 // Import the functions you need from the SDKs you need
-import { getApps, initializeApp } from "firebase/app";
-import { getFirestore, getStorage } from "firebase/firestore";
+import { getApp, getApps, initializeApp } from "firebase/app";
+import { getFirestore } from "firebase/firestore";
+import { getStorage } from "firebase/storage";
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -16,8 +17,16 @@ const firebaseConfig = {
 };
 
 // Initialize Firebase
+// const app = initializeApp(firebaseConfig);
+// Prevents initializing a new Firebase app if one already exists. This can be
+// helpful in a situation where this code could run more than once, as trying to
+// initialize a new app with an already in-use configuration will throw an error.
 const app = !getApps().length ? initializeApp(firebaseConfig) : getApp();
+
 // Initialize Cloud Firestore and get a reference to the service
 const db = getFirestore(app);
 // Initialize Cloud Storage and get a reference to the service
 const storage = getStorage(app);
+
+export default app;
+export { db, storage };
