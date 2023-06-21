@@ -25,6 +25,7 @@ export function SignInButton() {
       </Link>
     );
   }
+
   return (
     <button
       className="p-4"

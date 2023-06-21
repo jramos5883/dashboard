@@ -1,5 +1,5 @@
 // Import the functions you need from the SDKs you need
-import { initializeApp } from "firebase/app";
+import { getApps, initializeApp } from "firebase/app";
 import { getFirestore, getStorage } from "firebase/firestore";
 
 // TODO: Add SDKs for Firebase products that you want to use
@@ -16,7 +16,7 @@ const firebaseConfig = {
 };
 
 // Initialize Firebase
-const app = initializeApp(firebaseConfig);
+const app = !getApps().length ? initializeApp(firebaseConfig) : getApp();
 // Initialize Cloud Firestore and get a reference to the service
 const db = getFirestore(app);
 // Initialize Cloud Storage and get a reference to the service
