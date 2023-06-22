@@ -29,23 +29,38 @@ export default function GoogleCalendarForm() {
       const userRef = doc(db, "users", session.user?.uid);
       await setDoc(userRef, { calendarEmbedCode }, { merge: true });
       await fetchCalendarEmbedCode();
+      setCalendarEmbedCode("");
     }
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label>
-        Google Calendar EmbedCode:
-        <input
-          type="string"
-          value={calendarEmbedCode}
-          onChange={(e) => setCalendarEmbedCode(e.target.value)}
-          required
-        />
-      </label>
-      <button className="px-4" type="submit">
-        Save
-      </button>
-    </form>
+    <div className="container flex flex-col items-center justify-center">
+      <a
+        className="text-2xl text-blue-700"
+        href="https://www.howtogeek.com/781315/how-to-embed-google-calendar-on-a-website-or-blog/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        -- Guide to Embeding Google Calandar Link --
+      </a>
+      <form className="flex flex-row py-4 space-x-3" onSubmit={handleSubmit}>
+        <label>
+          Google Calendar Embed Code:
+          <input
+            className="rounded-[10px]"
+            type="string"
+            value={calendarEmbedCode}
+            onChange={(e) => setCalendarEmbedCode(e.target.value)}
+            required
+          />
+        </label>
+        <button
+          className="px-4 bg-blue-500 rounded-lg hover:bg-sky-700"
+          type="submit"
+        >
+          Save Embed Code
+        </button>
+      </form>
+    </div>
   );
 }
