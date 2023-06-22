@@ -47,7 +47,7 @@ export default function GoogleCalendarForm() {
         <label>
           Google Calendar Embed Code:
           <input
-            className="rounded-[10px]"
+            className="rounded-lg"
             type="string"
             value={calendarEmbedCode}
             onChange={(e) => setCalendarEmbedCode(e.target.value)}
