@@ -3,6 +3,8 @@ import { redirect } from "next/navigation";
 
 import GoogleCalendarForm from "../dash.comp/googleCalendar/dc.googleCalendarForm";
 import GoogleCalendar from "../dash.comp/googleCalendar/dc.googleCalendar";
+import ShoppingList from "../dash.comp/shoppingList/dc.shoppingList";
+import Tmgfhst from "../dash.comp/tmgfhst/dc.tmgfhst";
 
 export default async function Dashboard() {
   const session = await getServerSession();
@@ -16,6 +18,8 @@ export default async function Dashboard() {
       </h1>
       <GoogleCalendarForm />
       <GoogleCalendar />
+      <ShoppingList />
+      <Tmgfhst />
     </div>
   );
 }

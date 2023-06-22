@@ -42,8 +42,8 @@ export function SignInButton() {
         <Image
           className="rounded-[10px] cursor-pointer"
           src={session.user?.image ?? "/mememan.webp"}
-          width={50}
-          height={50}
+          width={45}
+          height={45}
           alt="Your Name"
         />
       </Link>
@@ -62,10 +62,6 @@ export function SignInButton() {
 
 export function SignOutButton() {
   const { data: session, status } = useSession();
-
-  if (status === "loading") {
-    return <>Loading...</>;
-  }
 
   if (status === "authenticated") {
     return (
