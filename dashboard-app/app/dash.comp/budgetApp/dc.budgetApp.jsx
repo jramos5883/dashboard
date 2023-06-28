@@ -77,7 +77,7 @@ export default function Budget() {
           onChange={(e) =>
             setNewExpense({ ...newExpense, name: e.target.value })
           }
-          placeholder="Expense name"
+          placeholder="< Bill / Subscription >"
           required
         />
         <input
@@ -145,7 +145,7 @@ export default function Budget() {
         </Droppable>
       </DragDropContext>
 
-      <h2>Total Expense: ${totalExpense.toFixed(2)}</h2>
+      <h2>Total Monthly Expenses: ${totalExpense.toFixed(2)}</h2>
     </div>
   );
 }

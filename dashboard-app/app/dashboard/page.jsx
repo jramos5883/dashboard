@@ -7,6 +7,7 @@ import ShoppingList from "../dash.comp/shoppingList/dc.shoppingList";
 import Tmgfhst from "../dash.comp/tmgfhst/dc.tmgfhst";
 import TodoList from "../dash.comp/toDoList/dc.toDoList";
 import Budget from "../dash.comp/budgetApp/dc.budgetApp";
+import DotaProMatchTracker from "../dash.comp/dotaProMatchTracker/dc.dotaProMatchTracker";
 
 export default async function Dashboard() {
   const session = await getServerSession();
@@ -24,6 +25,7 @@ export default async function Dashboard() {
       <Tmgfhst />
       <TodoList />
       <Budget />
+      <DotaProMatchTracker />
     </div>
   );
 }
