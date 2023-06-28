@@ -5,6 +5,8 @@ import GoogleCalendarForm from "../dash.comp/googleCalendar/dc.googleCalendarFor
 import GoogleCalendar from "../dash.comp/googleCalendar/dc.googleCalendar";
 import ShoppingList from "../dash.comp/shoppingList/dc.shoppingList";
 import Tmgfhst from "../dash.comp/tmgfhst/dc.tmgfhst";
+import TodoList from "../dash.comp/toDoList/dc.toDoList";
+import Budget from "../dash.comp/budgetApp/dc.budgetApp";
 
 export default async function Dashboard() {
   const session = await getServerSession();
@@ -20,6 +22,8 @@ export default async function Dashboard() {
       <GoogleCalendar />
       <ShoppingList />
       <Tmgfhst />
+      <TodoList />
+      <Budget />
     </div>
   );
 }

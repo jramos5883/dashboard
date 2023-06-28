@@ -11,6 +11,7 @@ import {
 } from "firebase/firestore";
 import { useSession } from "next-auth/react";
 import { db } from "@/app/utils/firebase/firebase.utils";
+import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 
 export default function ShoppingList() {
   const { data: session } = useSession();
@@ -48,6 +49,15 @@ export default function ShoppingList() {
     setList((prevList) => prevList.filter((i) => i !== item));
   };
 
+  const handleDragEnd = async (result) => {
+    if (!result.destination) return;
+    const [reorderedItem] = list.splice(result.source.index, 1);
+    list.splice(result.destination.index, 0, reorderedItem);
+    const userRef = doc(db, "users", session.user?.uid);
+    await setDoc(userRef, { shoppingList: list }, { merge: true });
+    setList([...list]);
+  };
+
   return (
     <div className="py-4">
       <h1 className="text-2xl">Shopping List</h1>
@@ -65,19 +75,35 @@ export default function ShoppingList() {
         </button>
       </form>
 
-      <ul>
-        {list.map((item, index) => (
-          <li key={index} className="my-1">
-            {item}
-            <button
-              onClick={() => deleteItem(item)}
-              className="ml-4 text-red-500"
-            >
-              Delete
-            </button>
-          </li>
-        ))}
-      </ul>
+      <DragDropContext onDragEnd={handleDragEnd}>
+        <Droppable droppableId="list">
+          {(provided) => (
+            <ul {...provided.droppableProps} ref={provided.innerRef}>
+              {list.map((item, index) => (
+                <Draggable key={item} draggableId={item} index={index}>
+                  {(provided) => (
+                    <li
+                      {...provided.draggableProps}
+                      {...provided.dragHandleProps}
+                      ref={provided.innerRef}
+                      className="my-1"
+                    >
+                      {item}
+                      <button
+                        onClick={() => deleteItem(item)}
+                        className="ml-4 text-red-500"
+                      >
+                        Delete
+                      </button>
+                    </li>
+                  )}
+                </Draggable>
+              ))}
+              {provided.placeholder}
+            </ul>
+          )}
+        </Droppable>
+      </DragDropContext>
     </div>
   );
 }
