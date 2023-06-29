@@ -5,7 +5,7 @@ import GoogleCalendarForm from "../dash.comp/googleCalendar/dc.googleCalendarFor
 import GoogleCalendar from "../dash.comp/googleCalendar/dc.googleCalendar";
 import ShoppingList from "../dash.comp/shoppingList/dc.shoppingList";
 import Tmgfhst from "../dash.comp/tmgfhst/dc.tmgfhst";
-import TodoList from "../dash.comp/toDoList/dc.toDoList";
+import ToDoList from "../dash.comp/toDoList/dc.toDoList";
 import Budget from "../dash.comp/budgetApp/dc.budgetApp";
 import DotaProMatchTracker from "../dash.comp/dotaProMatchTracker/dc.dotaProMatchTracker";
 
@@ -23,7 +23,7 @@ export default async function Dashboard() {
       <GoogleCalendar />
       <ShoppingList />
       <Tmgfhst />
-      <TodoList />
+      <ToDoList />
       <Budget />
       <DotaProMatchTracker />
     </div>

@@ -26,7 +26,7 @@ export default function DotaProMatchTracker() {
 
         // Set the matches state
         setMatches(filteredMatches.slice(0, 12));
-        console.log(filteredMatches);
+        // console.log(filteredMatches);
       } catch (error) {
         console.error("Error:", error);
       }
