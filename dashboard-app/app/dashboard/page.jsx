@@ -5,7 +5,7 @@ import GoogleCalendarForm from "../dash.comp/googleCalendar/dc.googleCalendarFor
 import GoogleCalendar from "../dash.comp/googleCalendar/dc.googleCalendar";
 import ShoppingList from "../dash.comp/shoppingList/dc.shoppingList";
 import Tmgfhst from "../dash.comp/tmgfhst/dc.tmgfhst";
-import ToDoApp from "../dash.comp/toDoListApp/dc.toDoApp";
+import TodoList from "../dash.comp/toDoListApp/dc.toDoList";
 import Budget from "../dash.comp/budgetApp/dc.budgetApp";
 import DotaProMatchTracker from "../dash.comp/dotaProMatchTracker/dc.dotaProMatchTracker";
 
@@ -15,16 +15,16 @@ export default async function Dashboard() {
     redirect("/api/auth/signin");
   }
   return (
-    <div className="container flex flex-col items-center justify-center">
+    <div className="flex flex-col items-center justify-center">
       <h1 className="py-4 text-3xl text-center">
         Welcome to your dashboard, {session?.user?.name}!
       </h1>
       <GoogleCalendarForm />
       <GoogleCalendar />
+      <TodoList />
+      <Budget />
       <ShoppingList />
       <Tmgfhst />
-      <ToDoApp />
-      <Budget />
       <DotaProMatchTracker />
     </div>
   );

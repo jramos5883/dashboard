@@ -25,7 +25,7 @@ export default function DotaProMatchTracker() {
         });
 
         // Set the matches state
-        setMatches(filteredMatches.slice(0, 12));
+        setMatches(filteredMatches.slice(0, 25));
         // console.log(filteredMatches);
       } catch (error) {
         console.error("Error:", error);
@@ -57,6 +57,7 @@ export default function DotaProMatchTracker() {
           <thead>
             <tr>
               <th className="px-4 py-2">Match ID</th>
+              <th className="px-4 py-2">Pro League</th>
               <th className="px-4 py-2">Start Time</th>
               <th className="px-4 py-2">Duration</th>
               <th className="px-4 py-2">Radiant Name</th>
@@ -75,6 +76,7 @@ export default function DotaProMatchTracker() {
               return (
                 <tr key={match.match_id}>
                   <td className="border px-4 py-2">{match.match_id}</td>
+                  <td className="border px-4 py-2">{match.league_name}</td>
                   <td className="border px-4 py-2">
                     {new Date(match.start_time * 1000).toLocaleString()}
                   </td>
