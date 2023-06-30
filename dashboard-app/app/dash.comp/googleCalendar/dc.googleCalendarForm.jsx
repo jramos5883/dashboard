@@ -33,6 +33,10 @@ export default function GoogleCalendarForm() {
     }
   };
 
+  if (status === "loading") {
+    return <>Loading...</>;
+  }
+
   return (
     <div className="container flex flex-col items-center justify-center">
       <a

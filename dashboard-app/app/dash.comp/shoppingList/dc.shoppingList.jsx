@@ -14,7 +14,7 @@ import { db } from "@/app/utils/firebase/firebase.utils";
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 
 export default function ShoppingList() {
-  const { data: session } = useSession();
+  const { data: session, status } = useSession();
   const [list, setList] = useState([]);
   const [newItem, setNewItem] = useState("");
 
@@ -30,6 +30,10 @@ export default function ShoppingList() {
     };
     fetchList();
   }, [session]);
+
+  if (status === "loading") {
+    return <>Loading...</>;
+  }
 
   const addItem = async (event) => {
     event.preventDefault();
@@ -91,7 +95,7 @@ export default function ShoppingList() {
                       {item}
                       <button
                         onClick={() => deleteItem(item)}
-                        className="ml-4 text-red-500"
+                        className="ml-4 text-red-500 px-4"
                       >
                         Delete
                       </button>

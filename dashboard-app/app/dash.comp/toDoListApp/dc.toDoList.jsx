@@ -14,7 +14,7 @@ import { db } from "@/app/utils/firebase/firebase.utils";
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 
 export default function TodoList() {
-  const { data: session } = useSession();
+  const { data: session, status } = useSession();
   const [toDoLists, setToDoLists] = useState([]);
   const [selectedListIndex, setSelectedListIndex] = useState(null);
   const [newListName, setNewListName] = useState("");
@@ -32,6 +32,10 @@ export default function TodoList() {
     };
     fetchList();
   }, [session]);
+
+  if (status === "loading") {
+    return <>Loading...</>;
+  }
 
   const addList = async (event) => {
     event.preventDefault();

@@ -1,8 +1,10 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import { useSession } from "next-auth/react";
 
 export default function DotaProMatchTracker() {
+  const { data: session, status } = useSession();
   const [matches, setMatches] = useState([]);
   const [teamName, setTeamName] = useState("");
   const [searchedTeamName, setSearchedTeamName] = useState("");
@@ -34,6 +36,10 @@ export default function DotaProMatchTracker() {
 
     fetchMatches();
   }, [searchedTeamName]);
+
+  if (status === "loading") {
+    return <>Loading...</>;
+  }
 
   const handleSubmit = (e) => {
     e.preventDefault();

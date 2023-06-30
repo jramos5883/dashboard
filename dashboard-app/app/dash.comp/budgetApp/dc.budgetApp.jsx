@@ -13,7 +13,7 @@ import { db } from "@/app/utils/firebase/firebase.utils";
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 
 export default function Budget() {
-  const { data: session } = useSession();
+  const { data: session, status } = useSession();
   const [expenses, setExpenses] = useState([]);
   const [newExpense, setNewExpense] = useState({
     name: "",
@@ -33,6 +33,10 @@ export default function Budget() {
     };
     fetchExpenses();
   }, [session]);
+
+  if (status === "loading") {
+    return <>Loading...</>;
+  }
 
   const addExpense = async (event) => {
     event.preventDefault();
@@ -125,14 +129,16 @@ export default function Budget() {
                       className="my-1 flex justify-between bg-gray-200 rounded"
                     >
                       <span className="w-1/4 p-2">{expense.name}</span>
-                      <span className="w-1/4 p-2">{expense.dueDate}</span>
-                      <span className="w-1/4 p-2">
+                      <span className="w-1/4 p-2 text-right">
+                        {expense.dueDate}
+                      </span>
+                      <span className="w-1/4 p-2 text-right">
                         ${parseFloat(expense.amount).toFixed(2)}
                       </span>
                       <span className="w-1/4 p-2 text-right">
                         <button
                           onClick={() => deleteExpense(expense)}
-                          className="text-red-500"
+                          className="text-red-500 px-4"
                         >
                           Delete
                         </button>
@@ -147,7 +153,9 @@ export default function Budget() {
         </Droppable>
       </DragDropContext>
 
-      <h2>Total Monthly Expenses: ${totalExpense.toFixed(2)}</h2>
+      <h2 className="text-2xl">
+        Total Monthly Expenses: ${totalExpense.toFixed(2)}
+      </h2>
     </div>
   );
 }
