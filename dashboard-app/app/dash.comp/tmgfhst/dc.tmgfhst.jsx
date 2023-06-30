@@ -86,7 +86,7 @@ export default function Tmgfhst() {
                       {...provided.draggableProps}
                       {...provided.dragHandleProps}
                       ref={provided.innerRef}
-                      className="my-1"
+                      className="my-1 px-4 flex justify-between bg-gray-200 rounded"
                     >
                       {item}
                       <button

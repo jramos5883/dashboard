@@ -122,15 +122,17 @@ export default function Budget() {
                       {...provided.draggableProps}
                       {...provided.dragHandleProps}
                       ref={provided.innerRef}
-                      className="my-1 flex justify-between"
+                      className="my-1 flex justify-between bg-gray-200 rounded"
                     >
-                      <span className="w-1/3 p-2">{expense.name}</span>
-                      <span className="w-1/3 p-2">{expense.dueDate}</span>
-                      <span className="w-1/3 p-2">
+                      <span className="w-1/4 p-2">{expense.name}</span>
+                      <span className="w-1/4 p-2">{expense.dueDate}</span>
+                      <span className="w-1/4 p-2">
                         ${parseFloat(expense.amount).toFixed(2)}
+                      </span>
+                      <span className="w-1/4 p-2 text-right">
                         <button
                           onClick={() => deleteExpense(expense)}
-                          className="ml-4 text-red-500"
+                          className="text-red-500"
                         >
                           Delete
                         </button>

@@ -63,7 +63,13 @@ export default function TodoList() {
     updatedList.splice(index, 1);
     await setDoc(userRef, { toDoList: updatedList }, { merge: true });
     setToDoLists(updatedList);
-    if (selectedListIndex === index) setSelectedListIndex(null);
+    if (selectedListIndex !== null) {
+      if (selectedListIndex === index) {
+        setSelectedListIndex(null);
+      } else if (selectedListIndex > index) {
+        setSelectedListIndex((prevIndex) => prevIndex - 1);
+      }
+    }
   };
 
   const deleteTask = async (taskIndex) => {
@@ -112,17 +118,24 @@ export default function TodoList() {
         </form>
 
         <div className="">
-          <ul>
+          <ul className="">
             {toDoLists.map((list, index) => (
               <li
                 key={index}
-                className={index === selectedListIndex ? "bg-blue-200" : ""}
+                className={
+                  index === selectedListIndex
+                    ? "my-1 px-4 flex container bg-blue-200 rounded"
+                    : "my-1 px-4 flex container bg-gray-200 rounded"
+                }
               >
-                <button onClick={() => setSelectedListIndex(index)}>
+                <button
+                  className="flex container rounded"
+                  onClick={() => setSelectedListIndex(index)}
+                >
                   {list.listName}
                 </button>
                 <button
-                  className="ml-4 text-red-500"
+                  className="ml-4 text-red-500 px-4"
                   onClick={() => deleteList(index)}
                 >
                   Delete
@@ -167,12 +180,12 @@ export default function TodoList() {
                             {...provided.draggableProps}
                             {...provided.dragHandleProps}
                             ref={provided.innerRef}
-                            className="my-1"
+                            className="my-1 px-4 flex justify-between bg-gray-200 rounded"
                           >
                             {task}
                             <button
                               onClick={() => deleteTask(index)}
-                              className="ml-4 text-red-500"
+                              className="ml-4 text-red-500 px-4"
                             >
                               Delete
                             </button>
