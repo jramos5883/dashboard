@@ -106,7 +106,10 @@ export default function Budget() {
           placeholder="Amount"
           required
         />
-        <button type="submit" className="p-2 text-white bg-blue-500 rounded">
+        <button
+          type="submit"
+          className="p-2 text-white bg-blue-500 rounded hover:bg-blue-700"
+        >
           Add
         </button>
       </form>
@@ -126,7 +129,7 @@ export default function Budget() {
                       {...provided.draggableProps}
                       {...provided.dragHandleProps}
                       ref={provided.innerRef}
-                      className="my-1 flex justify-between bg-gray-200 rounded"
+                      className="my-1 flex justify-between bg-gray-200 rounded hover:bg-gray-100"
                     >
                       <span className="w-1/4 p-2">{expense.name}</span>
                       <span className="w-1/4 p-2 text-right">

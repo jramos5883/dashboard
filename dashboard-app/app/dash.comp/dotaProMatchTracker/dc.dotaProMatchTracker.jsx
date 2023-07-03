@@ -57,7 +57,7 @@ export default function DotaProMatchTracker() {
           onChange={(e) => setTeamName(e.target.value)}
           placeholder="Search for a team"
         />
-        <button className="p-2 text-white bg-blue-500 rounded" type="submit">
+        <button className="p-2 text-white bg-blue-500 rounded hover:bg-blue-700" type="submit">
           Submit
         </button>
       </form>

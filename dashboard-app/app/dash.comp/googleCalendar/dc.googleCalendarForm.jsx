@@ -58,7 +58,10 @@ export default function GoogleCalendarForm() {
             required
           />
         </label>
-        <button className="p-2 text-white bg-blue-500 rounded" type="submit">
+        <button
+          className="p-2 text-white bg-blue-500 rounded hover:bg-blue-700"
+          type="submit"
+        >
           Save Embed Code
         </button>
       </form>

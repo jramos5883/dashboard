@@ -116,7 +116,10 @@ export default function TodoList() {
             placeholder="New list"
             required
           />
-          <button type="submit" className="p-2 text-white bg-blue-500 rounded">
+          <button
+            type="submit"
+            className="p-2 text-white bg-blue-500 rounded hover:bg-blue-700"
+          >
             Add List
           </button>
         </form>
@@ -128,8 +131,8 @@ export default function TodoList() {
                 key={index}
                 className={
                   index === selectedListIndex
-                    ? "my-1 px-4 flex container bg-blue-200 rounded"
-                    : "my-1 px-4 flex container bg-gray-200 rounded"
+                    ? "my-1 px-4 flex container bg-blue-200 rounded hover:bg-gray-100"
+                    : "my-1 px-4 flex container bg-gray-200 rounded hover:bg-gray-100"
                 }
               >
                 <button
@@ -167,7 +170,7 @@ export default function TodoList() {
               />
               <button
                 type="submit"
-                className="p-2 text-white bg-blue-500 rounded"
+                className="p-2 text-white bg-blue-500 rounded hover:bg-blue-700"
               >
                 Add Task
               </button>
@@ -184,7 +187,7 @@ export default function TodoList() {
                             {...provided.draggableProps}
                             {...provided.dragHandleProps}
                             ref={provided.innerRef}
-                            className="my-1 px-4 flex justify-between bg-gray-200 rounded"
+                            className="my-1 px-4 flex justify-between bg-gray-200 rounded hover:bg-gray-100"
                           >
                             {task}
                             <button
