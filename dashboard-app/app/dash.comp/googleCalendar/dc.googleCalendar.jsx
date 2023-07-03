@@ -30,5 +30,10 @@ export default function GoogleCalendar() {
     return null;
   }
 
-  return <div dangerouslySetInnerHTML={{ __html: calendarEmbedCode }} />;
+  return (
+    <div
+      className="py-8"
+      dangerouslySetInnerHTML={{ __html: calendarEmbedCode }}
+    />
+  );
 }

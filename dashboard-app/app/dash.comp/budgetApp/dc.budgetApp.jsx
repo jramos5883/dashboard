@@ -71,7 +71,7 @@ export default function Budget() {
   );
 
   return (
-    <div>
+    <div className="py-8">
       <h1 className="text-2xl">Budget</h1>
       <form onSubmit={addExpense} className="my-2">
         <input
@@ -153,7 +153,7 @@ export default function Budget() {
         </Droppable>
       </DragDropContext>
 
-      <h2 className="text-2xl">
+      <h2 className="text-2xl py-4 text-right">
         Total Monthly Expenses: ${totalExpense.toFixed(2)}
       </h2>
     </div>

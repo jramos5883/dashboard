@@ -15,7 +15,7 @@ export default async function Dashboard() {
     redirect("/api/auth/signin");
   }
   return (
-    <div className="flex flex-col items-center justify-center">
+    <div className="flex flex-col items-center">
       <h1 className="py-4 text-3xl text-center">
         Welcome to your dashboard, {session?.user?.name}!
       </h1>
