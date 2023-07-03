@@ -32,7 +32,7 @@ export default function GoogleCalendar() {
 
   return (
     <div
-      className="py-8"
+      className="pt-2 pb-4"
       dangerouslySetInnerHTML={{ __html: calendarEmbedCode }}
     />
   );

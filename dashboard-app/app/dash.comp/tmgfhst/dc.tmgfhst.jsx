@@ -63,8 +63,8 @@ export default function Tmgfhst() {
   };
 
   return (
-    <div>
-      <h1 className="text-2xl">TMGFHST List</h1>
+    <div className="py-8">
+      <h1 className="text-3xl">TMGFHST List</h1>
       <form onSubmit={addItem} className="my-2">
         <input
           type="text"

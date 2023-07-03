@@ -106,7 +106,7 @@ export default function TodoList() {
   return (
     <div className="py-8 flex flex-row">
       <div className="w-1/2 px-4 flex flex-col">
-        <h1 className="text-2xl">To-Do List</h1>
+        <h1 className="text-3xl">To-Do List</h1>
         <form onSubmit={addList} className="my-2 flex flex-row">
           <input
             type="text"

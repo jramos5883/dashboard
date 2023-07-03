@@ -47,16 +47,19 @@ export default function DotaProMatchTracker() {
   };
 
   return (
-    <div>
-      <h1>Dota Pro Match Tracker!</h1>
-      <form onSubmit={handleSubmit}>
+    <div className="py-8">
+      <h1 className="text-3xl">Dota Pro Match Tracker</h1>
+      <form className="my-2" onSubmit={handleSubmit}>
         <input
           type="text"
+          className="p-2 mr-2 border rounded"
           value={teamName}
           onChange={(e) => setTeamName(e.target.value)}
           placeholder="Search for a team"
         />
-        <button type="submit">Submit</button>
+        <button className="p-2 text-white bg-blue-500 rounded" type="submit">
+          Submit
+        </button>
       </form>
       {matches.length ? (
         <table className="table-auto">

@@ -72,7 +72,7 @@ export default function Budget() {
 
   return (
     <div className="py-8">
-      <h1 className="text-2xl">Budget</h1>
+      <h1 className="text-3xl">Budget</h1>
       <form onSubmit={addExpense} className="my-2">
         <input
           type="text"

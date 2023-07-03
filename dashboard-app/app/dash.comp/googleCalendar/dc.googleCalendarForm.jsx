@@ -38,33 +38,31 @@ export default function GoogleCalendarForm() {
   }
 
   return (
-    <div className="container flex flex-col items-center justify-center">
+    <div className="py-1 flex flex-col">
       <a
-        className="text-2xl text-blue-700"
+        className="text-2xl text-blue-700 text-center"
         href="https://www.howtogeek.com/781315/how-to-embed-google-calendar-on-a-website-or-blog/"
         target="_blank"
         rel="noopener noreferrer"
       >
         -- Guide to Embeding Google Calandar Link --
       </a>
-      <form className="flex flex-row py-4 space-x-3" onSubmit={handleSubmit}>
-        <label>
+      <form className="" onSubmit={handleSubmit}>
+        <label className="text-2xl">
           Google Calendar Embed Code:
           <input
-            className="rounded-lg"
+            className="p-2 mr-2 border rounded"
             type="string"
             value={calendarEmbedCode}
             onChange={(e) => setCalendarEmbedCode(e.target.value)}
             required
           />
         </label>
-        <button
-          className="px-4 bg-blue-500 rounded-lg hover:bg-sky-700"
-          type="submit"
-        >
+        <button className="p-2 text-white bg-blue-500 rounded" type="submit">
           Save Embed Code
         </button>
       </form>
+      <label className="text-3xl text-left">Google Calendar</label>
     </div>
   );
 }

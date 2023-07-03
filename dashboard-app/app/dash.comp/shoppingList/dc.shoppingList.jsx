@@ -63,8 +63,8 @@ export default function ShoppingList() {
   };
 
   return (
-    <div className="py-4">
-      <h1 className="text-2xl">Shopping List</h1>
+    <div className="py-8">
+      <h1 className="text-3xl">Shopping List</h1>
       <form onSubmit={addItem} className="my-2">
         <input
           type="text"
