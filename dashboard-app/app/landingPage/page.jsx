@@ -22,7 +22,7 @@ export default function LandingPage() {
         />
       </div>
       <div className="w-1/2 max-w-2xl px-4">
-        <h1 className="text-3xl font-bold p-4 text-center">
+        <h1 className="text-3xl font-bold pt-4 text-center">
           Poseidon&apos;s Personal Dashboard
         </h1>
         <p className="p-4 indent-8">
