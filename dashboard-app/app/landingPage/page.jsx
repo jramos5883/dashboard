@@ -49,7 +49,7 @@ export default function LandingPage() {
         <p className="py-4 px-8">
           <span className="text-2xl font-medium">Budget App:</span> Keep track
           of your monthly bills and subscriptions with our Budget App. With this
-          feature, you can monitor your spending habit and manage your personal
+          feature, you can monitor your spending habits and manage your personal
           finances more effectively.
         </p>
         <p className="py-4 px-8">
