@@ -3,7 +3,7 @@ import Image from "next/image";
 export default function LandingPage() {
   return (
     <div className="flex justify-center">
-      <div className="w-1/2 max-w-xl px-4">
+      <div className="w-1/2 max-w-2xl px-4">
         <Image
           className="py-4"
           layout="responsive"
@@ -17,7 +17,7 @@ export default function LandingPage() {
           layout="responsive"
           height={500}
           width={500}
-          src="/dashboardToDoBudget1.png"
+          src="/dashboardTodoBudget1.png"
           alt="To Do and Budget App"
         />
       </div>
